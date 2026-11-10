@@ -1,0 +1,5 @@
+x402[fastapi,httpx,evm]==2.27.0
+fastapi
+uvicorn
+requests
+eth-account
