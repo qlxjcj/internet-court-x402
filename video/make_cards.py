@@ -124,22 +124,24 @@ CARDS = [
             <div><span class="k">PAYMENT-SIGNATURE</span> <span class="d">0x8b3f…c21a</span></div>
             <div><span class="g">HTTP/1.1 200 OK</span> <span class="d">settled 0.01 USDC</span></div>
             <div style="margin-top:14px"><span class="d">{{</span> <span class="k">"symbol"</span><span class="d">:</span> <span class="g">"ETH/USD"</span><span class="d">,</span></div>
-            <div><span class="d">  </span><span class="k">"price"</span><span class="d">:</span> <span class="r">2310.00</span><span class="d">,</span></div>
+            <div><span class="d">  </span><span class="k">"price"</span><span class="d">:</span> <span class="r">2294.94</span><span class="d">,</span></div>
             <div><span class="d">  </span><span class="k">"window"</span><span class="d">:</span> <span class="g">"24h"</span> <span class="d">}}</span></div>
-            <div style="margin-top:14px"><span class="d">receipt published at</span> <span class="w">/evidence/deal-1</span></div>
+            <div style="margin-top:14px"><span class="d">receipt published at</span> <span class="w">raw.githubusercontent.com/…</span></div>
           </div>
           <div class="stack" style="flex:1">
-            <div class="card"><div class="d" style="font-size:22px">COINGECKO</div>
-              <div class="big">2100.11</div></div>
-            <div class="card"><div class="d" style="font-size:22px">COINBASE</div>
-              <div class="big">2099.84</div></div>
+            <div class="card"><div class="d" style="font-size:22px">COINGECKO &nbsp;·&nbsp; COINBASE</div>
+              <div class="big">2085.39</div>
+              <div class="d">spot the seller read</div></div>
             <div class="card" style="border-color:rgba(255,107,107,.4)">
               <div class="d" style="font-size:22px">THE CLAIM</div>
-              <div class="big" style="color:var(--bad)">2310.00 &nbsp;+10.0%</div></div>
+              <div class="big" style="color:var(--bad)">2294.94 &nbsp;+10.06%</div></div>
+            <div class="card"><div class="d" style="font-size:22px">THE ESCROW</div>
+              <div class="big">0.1 GEN</div>
+              <div class="d">held by the court</div></div>
           </div>
         </div>
       </div>
-      {footer("THE FEEDS DISAGREE BY 13 BPS · THE CLAIM IS 10% OFF", "02 / 05")}
+      {footer("REAL x402 SETTLEMENT ON BASE SEPOLIA · RECEIPT PUBLISHED", "02 / 05")}
     """)),
 
     ("04-dispute", page(f"""
@@ -161,10 +163,10 @@ CARDS = [
             <div><span class="k">validator 1</span> <span class="d">fetching…</span></div>
             <div><span class="k">validator 2</span> <span class="d">fetching…</span></div>
             <div><span class="k">validator 3</span> <span class="d">fetching…</span></div>
-            <div style="margin-top:12px"><span class="d">report</span> <span class="w">2310.00</span></div>
-            <div><span class="d">feed a </span> <span class="w">2100.11</span></div>
-            <div><span class="d">feed b </span> <span class="w">2099.84</span></div>
-            <div style="margin-top:12px"><span class="r">drift 9994 bps &gt; 50 bps</span></div>
+            <div style="margin-top:12px"><span class="d">report</span> <span class="w">2294.94</span></div>
+            <div><span class="d">feed a </span> <span class="w">2085.39</span></div>
+            <div><span class="d">feed b </span> <span class="w">2085.39</span></div>
+            <div style="margin-top:12px"><span class="r">drift 1006 bps &gt; 50 bps</span></div>
           </div>
         </div>
       </div>
@@ -174,30 +176,35 @@ CARDS = [
     ("05-verdict", page(f"""
       {logos()}
       <div class="wrap">
-        <div class="eyebrow">4 &nbsp;—&nbsp; the verdict</div>
-        <h2><span class="r">NOT DELIVERED.</span><br>The escrow goes back.</h2>
-        <div class="row" style="margin-top:56px">
-          <div class="card" style="width:520px">
+        <div class="eyebrow">4 &nbsp;—&nbsp; the verdict, on chain</div>
+        <h2><span class="r">OUTSIDE THE BAND.</span><br>The escrow goes back.</h2>
+        <div class="row" style="margin-top:52px">
+          <div class="card" style="width:500px">
             <div class="d" style="font-size:22px">SELLER</div>
             <div class="big" style="margin-top:10px">+0.0000 GEN</div>
-            <div class="pill bad" style="margin-top:14px">claim outside the band</div>
+            <div class="pill bad" style="margin-top:14px">paid: 0</div>
           </div>
-          <div style="font-size:76px; color:var(--dim)">→</div>
-          <div class="card" style="width:520px;border-color:rgba(88,214,160,.4)">
+          <div style="font-size:70px; color:var(--dim)">→</div>
+          <div class="card" style="width:500px;border-color:rgba(88,214,160,.4)">
             <div class="d" style="font-size:22px">BUYER</div>
             <div class="big" style="margin-top:10px;color:var(--ok)">+0.1000 GEN</div>
-            <div class="pill ok" style="margin-top:14px">escrow returned</div>
+            <div class="pill ok" style="margin-top:14px">refunded</div>
           </div>
           <div class="stack" style="flex:1">
-            <div class="term" style="font-size:24px">
-              <div><span class="k">settle</span>(<span class="d">deal-1</span>)</div>
-              <div><span class="g">CANCELLED</span> <span class="d">· reason: the claim is outside the band</span></div>
-              <div><span class="d">paid 0 · refunded 0.1 GEN · held 0</span></div>
+            <div class="term" style="font-size:23px">
+              <div><span class="k">settle</span>(<span class="d">d2</span>)</div>
+              <div><span class="g">CANCELLED</span> <span class="d">· the claim is outside the band</span></div>
+              <div><span class="d">paid 0 · refunded 0.1 · held 0</span></div>
+            </div>
+            <div class="card">
+              <div class="d" style="font-size:22px">THE COURT</div>
+              <div class="mono" style="margin-top:8px;font-size:24px">0xD2334f0eC96587b24E73C009227d9055074d0139</div>
+              <div class="d" style="margin-top:6px;font-size:22px">GenLayer Studio · deal d2</div>
             </div>
           </div>
         </div>
       </div>
-      {footer("SAME CODE, SAME PAYMENT, ONE BOOLEAN APART", "04 / 05")}
+      {footer("THE HONEST RUN PAID THE SELLER · THIS ONE REFUNDED THE BUYER", "04 / 05")}
     """)),
 
     ("06-close", page(f"""
@@ -207,11 +214,10 @@ CARDS = [
         <h2>One skill.<br>Anyone can rerun it.</h2>
         <div class="row" style="margin-top:52px">
           <div class="term" style="width:1100px">
-            <div><span class="d">$</span> <span class="w">curl -s https://internetcourt.org/skill.md</span></div>
             <div><span class="d">$</span> <span class="w">python agent/run_deal.py --quality good</span></div>
-            <div><span class="g">  the seller keeps the escrow: the answer held up</span></div>
+            <div><span class="g">  SETTLED   the claim matches both feeds   → seller +0.1 GEN</span></div>
             <div><span class="d">$</span> <span class="w">python agent/run_deal.py --quality bad</span></div>
-            <div><span class="r">  the buyer keeps the escrow: the answer did not hold up</span></div>
+            <div><span class="r">  CANCELLED the claim is outside the band → buyer +0.1 GEN</span></div>
           </div>
           <div class="stack">
             <div class="card"><div class="d" style="font-size:22px">REPOSITORY</div>

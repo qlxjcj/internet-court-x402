@@ -32,8 +32,27 @@ and the only thing that changes is the number in the report.
 Everything in the demo runs against live infrastructure:
 
 - **x402**: the seller speaks the protocol (base64 `PAYMENT-REQUIRED`, `PAYMENT-SIGNATURE`, `PAYMENT-RESPONSE`) and settles through `https://x402.org/facilitator` on **Base Sepolia** (`eip155:84532`, USDC `0x036CbD53…`, EIP-3009, gasless).
-- **GenLayer**: the deployed Intelligent Contract `DeliveryAdjudicator` fetches the receipt and both feeds inside the consensus round and moves GEN.
-- **The feeds**: CoinGecko and Coinbase spot prices, public and keyless. At the moment of writing they disagree by ~20 bps — which is exactly why the tolerance is a band and not an equality.
+- **GenLayer**: the deployed Intelligent Contract
+  [`0xD2334f0eC96587b24E73C009227d9055074d0139`](https://explorer-studio.genlayer.com/address/0xD2334f0eC96587b24E73C009227d9055074d0139)
+  (GenLayer Studio) fetches the receipt and both feeds inside the consensus
+  round and moves GEN.
+- **The feeds**: CoinGecko and Coinbase spot prices, public and keyless. At the
+  moment of the live run they disagreed by ~0 bps; the buyer's band is 50 bps.
+
+## Live: three deals, two outcomes
+
+All three were settled by the deployed court, and the money moved as ruled.
+
+| deal | what the seller said | verdict | who kept the escrow |
+|---|---|---|---|
+| `d1` | `2085.39`, the spot both feeds quote | `SETTLED` — *the claim matches both feeds* | **seller**, 0.1 GEN |
+| `d2` | `2294.94`, ten per cent above | `CANCELLED` — *the claim is outside the band* | **buyer**, 0.1 GEN back |
+| `d0` | receipt on `localhost` | `CANCELLED` — *no answer was delivered* | **buyer** — a court that cannot read the evidence will not rule on it |
+
+`d1` and `d2` are the same code, the same payment, the same contract; only the
+number in the report differs. Every receipt is in [`evidence/`](evidence/) and
+each deal's `report_url` points at its raw URL, which is how the validators
+read it.
 
 ## How it works
 
@@ -71,7 +90,8 @@ python agent/make_wallet.py
 #   network Base Sepolia, currency USDC, paste the printed address
 
 python seller/server.py --port 8402 --pay-to 0xYOUR_BASE_SEPOLIA_ADDRESS
-export COURT_ADDRESS=0x...            # the deployed court
+export COURT_ADDRESS=0xD2334f0eC96587b24E73C009227d9055074d0139
+export SELLER_ADDRESS=0xYOUR_BASE_SEPOLIA_ADDRESS
 
 python agent/run_deal.py --quality good
 python agent/run_deal.py --quality bad
@@ -80,6 +100,9 @@ python agent/run_deal.py --quality bad
 Expected: with `good`, the court rules `SETTLED` and the seller keeps the
 escrow; with `bad`, it rules `CANCELLED` with the reason `the claim is outside
 the band` and the buyer keeps it. Same payment, same code, one boolean apart.
+
+The 45-second video is [`video/the-disputed-answer.mp4`](video/the-disputed-answer.mp4);
+the cards and the ffmpeg pipeline that produced it are in [`video/`](video/).
 
 ## Layout
 

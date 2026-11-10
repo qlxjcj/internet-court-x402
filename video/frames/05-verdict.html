@@ -43,28 +43,33 @@
 <body>
       <div class="logos"><img src="../assets/internet-court.svg" style="height:52px"><img src="../assets/genlayer.svg" style="height:52px"><img src="../assets/x402.svg" style="height:52px"></div>
       <div class="wrap">
-        <div class="eyebrow">4 &nbsp;—&nbsp; the verdict</div>
-        <h2><span class="r">NOT DELIVERED.</span><br>The escrow goes back.</h2>
-        <div class="row" style="margin-top:56px">
-          <div class="card" style="width:520px">
+        <div class="eyebrow">4 &nbsp;—&nbsp; the verdict, on chain</div>
+        <h2><span class="r">OUTSIDE THE BAND.</span><br>The escrow goes back.</h2>
+        <div class="row" style="margin-top:52px">
+          <div class="card" style="width:500px">
             <div class="d" style="font-size:22px">SELLER</div>
             <div class="big" style="margin-top:10px">+0.0000 GEN</div>
-            <div class="pill bad" style="margin-top:14px">claim outside the band</div>
+            <div class="pill bad" style="margin-top:14px">paid: 0</div>
           </div>
-          <div style="font-size:76px; color:var(--dim)">→</div>
-          <div class="card" style="width:520px;border-color:rgba(88,214,160,.4)">
+          <div style="font-size:70px; color:var(--dim)">→</div>
+          <div class="card" style="width:500px;border-color:rgba(88,214,160,.4)">
             <div class="d" style="font-size:22px">BUYER</div>
             <div class="big" style="margin-top:10px;color:var(--ok)">+0.1000 GEN</div>
-            <div class="pill ok" style="margin-top:14px">escrow returned</div>
+            <div class="pill ok" style="margin-top:14px">refunded</div>
           </div>
           <div class="stack" style="flex:1">
-            <div class="term" style="font-size:24px">
-              <div><span class="k">settle</span>(<span class="d">deal-1</span>)</div>
-              <div><span class="g">CANCELLED</span> <span class="d">· reason: the claim is outside the band</span></div>
-              <div><span class="d">paid 0 · refunded 0.1 GEN · held 0</span></div>
+            <div class="term" style="font-size:23px">
+              <div><span class="k">settle</span>(<span class="d">d2</span>)</div>
+              <div><span class="g">CANCELLED</span> <span class="d">· the claim is outside the band</span></div>
+              <div><span class="d">paid 0 · refunded 0.1 · held 0</span></div>
+            </div>
+            <div class="card">
+              <div class="d" style="font-size:22px">THE COURT</div>
+              <div class="mono" style="margin-top:8px;font-size:24px">0xD2334f0eC96587b24E73C009227d9055074d0139</div>
+              <div class="d" style="margin-top:6px;font-size:22px">GenLayer Studio · deal d2</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="footer"><span>SAME CODE, SAME PAYMENT, ONE BOOLEAN APART</span><span>04 / 05</span></div>
+      <div class="footer"><span>THE HONEST RUN PAID THE SELLER · THIS ONE REFUNDED THE BUYER</span><span>04 / 05</span></div>
     </body></html>

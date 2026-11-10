@@ -47,11 +47,10 @@
         <h2>One skill.<br>Anyone can rerun it.</h2>
         <div class="row" style="margin-top:52px">
           <div class="term" style="width:1100px">
-            <div><span class="d">$</span> <span class="w">curl -s https://internetcourt.org/skill.md</span></div>
             <div><span class="d">$</span> <span class="w">python agent/run_deal.py --quality good</span></div>
-            <div><span class="g">  the seller keeps the escrow: the answer held up</span></div>
+            <div><span class="g">  SETTLED   the claim matches both feeds   → seller +0.1 GEN</span></div>
             <div><span class="d">$</span> <span class="w">python agent/run_deal.py --quality bad</span></div>
-            <div><span class="r">  the buyer keeps the escrow: the answer did not hold up</span></div>
+            <div><span class="r">  CANCELLED the claim is outside the band → buyer +0.1 GEN</span></div>
           </div>
           <div class="stack">
             <div class="card"><div class="d" style="font-size:22px">REPOSITORY</div>
